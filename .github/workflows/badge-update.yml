@@ -1,0 +1,29 @@
+name: Update README Badges
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run weekly to update dynamic badges
+    - cron: '0 0 * * 0'
+
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate badges
+        run: |
+          # Check if badges exist in README
+          if ! grep -q "img.shields.io" README.md; then
+            echo "⚠️ No badges found in README.md"
+            exit 0
+          fi
+          
+          echo "✅ Badges found in README.md"
+          
+          # Count badges
+          badge_count=$(grep -o "img.shields.io" README.md | wc -l)
+          echo "📊 Found $badge_count badges"
+

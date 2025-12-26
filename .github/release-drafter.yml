@@ -1,0 +1,83 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'enhancement'
+      - 'feat'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+  - title: '💅 UI/UX Improvements'
+    labels:
+      - 'ui'
+      - 'ux'
+      - 'design'
+      - 'styling'
+  - title: '⚡ Performance'
+    labels:
+      - 'performance'
+      - 'perf'
+      - 'optimization'
+  - title: '📚 Documentation'
+    labels:
+      - 'documentation'
+      - 'docs'
+      - 'readme'
+  - title: '🔧 Maintenance'
+    labels:
+      - 'chore'
+      - 'maintenance'
+      - 'refactor'
+      - 'dependencies'
+  - title: '🧪 Testing'
+    labels:
+      - 'test'
+      - 'testing'
+  - title: '🔒 Security'
+    labels:
+      - 'security'
+
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+      - 'breaking'
+  minor:
+    labels:
+      - 'minor'
+      - 'feature'
+  patch:
+    labels:
+      - 'patch'
+      - 'fix'
+      - 'bugfix'
+
+autolabeler:
+  - label: 'documentation'
+    files:
+      - '*.md'
+      - 'docs/**/*'
+  - label: 'dependencies'
+    files:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'yarn.lock'
+      - 'pnpm-lock.yaml'
+
+exclude-labels:
+  - 'skip-changelog'
+  - 'no-release'
+
+template: |
+  ## Changes
+
+  $CHANGES
+

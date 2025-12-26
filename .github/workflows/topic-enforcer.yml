@@ -1,0 +1,68 @@
+name: Topic Enforcer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  enforce-topics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      metadata: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enforce Repository Topics
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Canonical topics for this repository
+            const canonicalTopics = [
+              "finance",
+              "budget-tracker",
+              "rpg",
+              "nextjs",
+              "typescript",
+              "tailwindcss",
+              "framer-motion",
+              "zustand",
+              "recharts",
+              "gamification",
+              "personal-finance",
+              "web-app",
+              "react",
+              "game-mechanics"
+            ];
+            
+            // Get current topics
+            const { data: repo } = await github.rest.repos.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            const currentTopics = repo.topics || [];
+            
+            // Check if topics match
+            const topicsMatch = 
+              canonicalTopics.length === currentTopics.length &&
+              canonicalTopics.every(topic => currentTopics.includes(topic));
+            
+            if (!topicsMatch) {
+              console.log('📝 Updating repository topics...');
+              console.log('Current topics:', currentTopics);
+              console.log('Canonical topics:', canonicalTopics);
+              
+              await github.rest.repos.replaceAllTopics({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                names: canonicalTopics,
+              });
+              
+              console.log('✅ Topics updated successfully');
+            } else {
+              console.log('✅ Topics are already correct');
+            }
+

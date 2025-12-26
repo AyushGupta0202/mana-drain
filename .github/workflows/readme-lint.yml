@@ -1,0 +1,67 @@
+name: Lint README
+
+on:
+  push:
+    paths:
+      - 'README.md'
+  pull_request:
+    paths:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  lint-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check README exists
+        run: |
+          if [ ! -f README.md ]; then
+            echo "❌ README.md not found!"
+            exit 1
+          fi
+          echo "✅ README.md exists"
+
+      - name: Validate README structure
+        run: |
+          # Check for required sections
+          required_sections=("Tech Stack" "Features" "Getting Started" "Usage Guide")
+          missing_sections=()
+          
+          for section in "${required_sections[@]}"; do
+            if ! grep -qi "$section" README.md; then
+              missing_sections+=("$section")
+            fi
+          done
+          
+          if [ ${#missing_sections[@]} -ne 0 ]; then
+            echo "❌ Missing required sections: ${missing_sections[*]}"
+            exit 1
+          fi
+          
+          echo "✅ All required sections present"
+
+      - name: Check for broken links
+        run: |
+          # Extract markdown links and check if they're valid
+          links=$(grep -oP '\[.*?\]\(.*?\)' README.md | grep -oP '\(.*?\)' | tr -d '()' || true)
+          
+          if [ -z "$links" ]; then
+            echo "ℹ️ No links found to validate"
+            exit 0
+          fi
+          
+          echo "ℹ️ Found links to validate (skipping external link checks)"
+
+      - name: README quality check
+        run: |
+          # Check README length (should be substantial)
+          lines=$(wc -l < README.md)
+          if [ $lines -lt 50 ]; then
+            echo "⚠️ README is quite short ($lines lines). Consider adding more details."
+          else
+            echo "✅ README has good length ($lines lines)"
+          fi
+

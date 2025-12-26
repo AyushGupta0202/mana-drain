@@ -1,0 +1,42 @@
+name: Repo Metadata Sync
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      metadata: write
+    steps:
+      - name: Sync Repository Metadata
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              description: "🎮 RPG Finance Tracker - Level up your budget management with XP, achievements, and gamified spending tracking",
+              topics: [
+                "finance",
+                "budget-tracker",
+                "rpg",
+                "nextjs",
+                "typescript",
+                "tailwindcss",
+                "framer-motion",
+                "zustand",
+                "recharts",
+                "gamification",
+                "personal-finance",
+                "web-app",
+                "react",
+                "game-mechanics"
+              ]
+            });
+            
+            console.log('✅ Repository metadata synced successfully');
+

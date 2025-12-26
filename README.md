@@ -1,6 +1,22 @@
 # 🎮 Mana Drain - RPG Finance Tracker
 
-A personal finance tracker that treats spending like a chaotic RPG game. Level up, earn XP, unlock achievements, and track your budget with style.
+<div align="center">
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/AyushGupta0202/mana-drain/ci.yml?branch=main&style=for-the-badge&logo=github)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![Next.js](https://img.shields.io/badge/Next.js-16.1-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.2-blue?style=for-the-badge&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38bdf8?style=for-the-badge&logo=tailwind-css)
+![License](https://img.shields.io/github/license/AyushGupta0202/mana-drain?style=for-the-badge)
+
+[![GitHub stars](https://img.shields.io/github/stars/AyushGupta0202/mana-drain?style=social)](https://github.com/AyushGupta0202/mana-drain/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/AyushGupta0202/mana-drain?style=social)](https://github.com/AyushGupta0202/mana-drain/network/members)
+
+**A personal finance tracker that treats spending like a chaotic RPG game. Level up, earn XP, unlock achievements, and track your budget with style.**
+
+[Features](#-features) • [Getting Started](#-getting-started) • [Tech Stack](#-tech-stack) • [Contributing](#-contributing)
+
+</div>
 
 ## 🚀 Tech Stack
 
@@ -201,6 +217,39 @@ See `.cursorrules` for detailed development guidelines:
 - Keyboard navigation support
 - Color contrast compliance
 
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style
+- Add tests if applicable
+- Update documentation as needed
+- Ensure all CI checks pass
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built with Next.js and TypeScript
+- UI inspired by RPG game aesthetics
+- Icons from Lucide React
+
 ---
 
-Built with ❤️ and excessive amounts of neon glow effects.
+<div align="center">
+
+**Built with ❤️ and excessive amounts of neon glow effects.**
+
+[⬆ Back to Top](#-mana-drain---rpg-finance-tracker)
+
+</div>

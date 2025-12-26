@@ -1,0 +1,16 @@
+name: Auto Label PR
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/label-commits@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          skip-on-label: 'skip-changelog'
+          skip-on-title: 'skip-changelog'
+
