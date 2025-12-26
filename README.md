@@ -4,13 +4,14 @@ A personal finance tracker that treats spending like a chaotic RPG game. Level u
 
 ## 🚀 Tech Stack
 
-- **Framework:** Next.js 14+ (App Router) with TypeScript
-- **Styling:** Tailwind CSS v4 + Custom Design System
+- **Framework:** Next.js 16.1.1 (App Router) with TypeScript 5
+- **Styling:** Tailwind CSS v4 + Custom Design System (CSS Variables)
 - **Motion:** Framer Motion
 - **State:** Zustand
 - **Icons:** Lucide React
-- **Charts:** Recharts (implemented)
+- **Charts:** Recharts
 - **Date Handling:** date-fns
+- **Utilities:** clsx, tailwind-merge (className utilities)
 
 ## 🎨 Design System
 
@@ -67,7 +68,8 @@ mana-drain/
 - **Level System:** XP progression with automatic level-ups
 - **Budget Tracking:** Real-time budget health bar visualization
 - **Transaction Logging:** Add transactions with category selection
-- **Transaction History:** View and delete past transactions
+- **Transaction History:** View, edit, and delete past transactions
+- **Edit Transactions:** Click edit button on any transaction to modify amount, description, or category
 - **Spending Charts:** Pie chart visualization by category
 - **Achievement System:** 5 unlockable achievements with automatic detection
 - **Streak System:** Daily transaction streak tracking
@@ -86,7 +88,7 @@ mana-drain/
 - **Leveling:** Automatic level-up when XP threshold reached (Level × 100 XP)
 - **Achievements:** 
   - **First Transaction** (Common): Log your first expense
-  - **Budget Master** (Rare): Stay under budget for 7 days with 5+ transactions
+  - **Budget Master** (Rare): Maintain >50% budget remaining with 5+ transactions logged
   - **Level Up!** (Epic): Reach level 5
   - **XP Collector** (Legendary): Earn 1000 XP
   - **7 Day Streak** (Epic): Log transactions for 7 consecutive days
@@ -99,6 +101,7 @@ mana-drain/
 - **Add Transactions:** Floating action button with modal form
 - **Category Selection:** Visual category picker with emoji icons
 - **Transaction List:** Chronological list with category badges
+- **Edit Transactions:** Click edit icon to modify transaction details inline
 - **Delete Transactions:** Hover to reveal delete button
 - **Spending Analysis:** Pie chart showing spending distribution by category
 
@@ -150,6 +153,12 @@ Open [http://localhost:3000](http://localhost:3000) to see the dashboard.
 3. Select a category
 4. Click "Add Transaction"
 
+### Editing Transactions
+1. Hover over any transaction in the list
+2. Click the edit icon (pencil) that appears
+3. Modify amount, description, or category
+4. Click "Update Transaction"
+
 ### Viewing Spending
 - **Dashboard:** Overview stats and budget health
 - **Spending Chart:** Visual breakdown by category
@@ -180,6 +189,7 @@ See `.cursorrules` for detailed development guidelines:
 - Zustand store handles all game state
 - Transactions stored in memory (ready for persistence)
 - Real-time updates across components
+- `resetAllData()` function available for testing/debugging
 
 ### Performance
 - Optimized re-renders with Zustand selectors
