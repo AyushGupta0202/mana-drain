@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  /* Base Colors - Dark Cyberpunk Theme */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  
+  /* RPG Rarity Colors */
+  --common: #00D9FF;      /* Cyan - Food */
+  --rare: #A855F7;        /* Purple - Entertainment */
+  --epic: #FF6B35;        /* Orange - Shopping */
+  --legendary: #FFD700;   /* Gold - Bills */
+  
+  /* UI Colors */
+  --card-bg: rgba(15, 15, 20, 0.8);
+  --card-border: rgba(0, 217, 255, 0.3);
+  --glow-common: rgba(0, 217, 255, 0.4);
+  --glow-rare: rgba(168, 85, 247, 0.4);
+  --glow-epic: rgba(255, 107, 53, 0.4);
+  --glow-legendary: rgba(255, 215, 0, 0.4);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-neon: linear-gradient(135deg, #00D9FF 0%, #A855F7 100%);
+  
+  /* Shadows */
+  --shadow-glow-common: 0 0 20px rgba(0, 217, 255, 0.3);
+  --shadow-glow-rare: 0 0 20px rgba(168, 85, 247, 0.3);
+  --shadow-glow-epic: 0 0 20px rgba(255, 107, 53, 0.3);
+  --shadow-glow-legendary: 0 0 20px rgba(255, 215, 0, 0.3);
+  
+  /* Spacing Scale - 4px base unit */
+  --spacing-xs: 0.25rem;    /* 4px - tight spacing, icon padding */
+  --spacing-sm: 0.5rem;     /* 8px - small gaps, compact elements */
+  --spacing-md: 1rem;       /* 16px - standard spacing, card padding */
+  --spacing-lg: 1.5rem;    /* 24px - section spacing, larger gaps */
+  --spacing-xl: 2rem;       /* 32px - major section spacing */
+  --spacing-2xl: 3rem;      /* 48px - page-level spacing */
+  --spacing-3xl: 4rem;      /* 64px - hero spacing */
+  
+  /* Component Spacing Tokens */
+  --card-padding-compact: var(--spacing-md);   /* 16px */
+  --card-padding-standard: var(--spacing-lg); /* 24px */
+  --card-padding-spacious: var(--spacing-xl); /* 32px */
+  --section-gap: var(--spacing-lg);           /* 24px */
+  --section-gap-large: var(--spacing-xl);     /* 32px */
+  --form-field-gap: var(--spacing-md);        /* 16px */
+  --form-label-gap: var(--spacing-sm);        /* 8px */
+  --icon-container-padding: var(--spacing-sm); /* 8px */
+  --text-spacing-tight: var(--spacing-xs);    /* 4px */
+  --text-spacing-normal: var(--spacing-sm);    /* 8px */
+  --text-spacing-relaxed: var(--spacing-md);  /* 16px */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-common: var(--common);
+  --color-rare: var(--rare);
+  --color-epic: var(--epic);
+  --color-legendary: var(--legendary);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 1rem; /* 16px base */
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Typography Scale */
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 3rem; /* 48px */
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem; /* 32px */
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem; /* 24px */
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Glassmorphic Card Base */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+}
+
+/* Glow Effects */
+.glow-common {
+  box-shadow: var(--shadow-glow-common);
+  border-color: var(--common);
+}
+
+.glow-rare {
+  box-shadow: var(--shadow-glow-rare);
+  border-color: var(--rare);
+}
+
+.glow-epic {
+  box-shadow: var(--shadow-glow-epic);
+  border-color: var(--epic);
+}
+
+.glow-legendary {
+  box-shadow: var(--shadow-glow-legendary);
+  border-color: var(--legendary);
+}
+
+/* Standard Transitions */
+.transition-smooth {
+  transition: all 200ms ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 15, 20, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.5);
+}
+
+/* Next.js Portal Overrides */
+nextjs-portal {
+  left: unset;
+  top: unset;
+}
+
+/* Animation Utilities */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
