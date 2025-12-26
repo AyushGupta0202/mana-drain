@@ -1,0 +1,35 @@
+# Cursor Rules for Mana Drain RPG Finance Tracker
+
+## Core Principles
+- No unstyled HTML elements. Every element must have Tailwind classes or be a styled component.
+- Always use lucide-react for icons. No other icon libraries.
+- Mobile-first responsive design by default. Test on mobile breakpoints first.
+- Use TypeScript strictly. No `any` types unless absolutely necessary.
+- Follow the RPG game theme consistently throughout the UI.
+
+## Code Style
+- Use functional components with TypeScript.
+- Prefer named exports over default exports for components.
+- Use Framer Motion for all animations and transitions.
+- Use Zustand for state management.
+- Use Shadcn/UI components as base, customize for RPG theme.
+
+## Design System
+- Color palette: Dark slate-900 base with neon accents (cyan, purple, orange, gold).
+- Typography: Orbitron for headings, Inter for body text.
+- Motion: Standard 200ms ease-out transitions, Framer Motion variants for complex animations.
+- Glassmorphic cards with neon borders and subtle glow effects.
+
+## File Structure
+- Components in `/components` directory.
+- Utilities in `/lib` directory.
+- Hooks in `/hooks` directory.
+- Store in `/store` directory.
+- Types in `/types` directory.
+
+## Animation Guidelines
+- All number changes should animate (use Framer Motion's useMotionValue and useSpring).
+- Progress bars should fill smoothly with easing.
+- Cards should have hover effects with glow intensification.
+- Page transitions should be smooth and consistent.
+
